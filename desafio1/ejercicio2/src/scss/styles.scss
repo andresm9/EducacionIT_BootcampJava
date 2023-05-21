@@ -39,7 +39,7 @@ $success: #7952b3;
 // @import "bootstrap/scss/button-group";
 // @import "bootstrap/scss/nav";
 // @import "bootstrap/scss/navbar"; // Requires nav
-// @import "bootstrap/scss/card";
+@import "bootstrap/scss/card";
 // @import "bootstrap/scss/breadcrumb";
 // @import "bootstrap/scss/accordion";
 // @import "bootstrap/scss/pagination";
@@ -64,3 +64,24 @@ $success: #7952b3;
 @import "bootstrap/scss/utilities/api";
 
 // 8. Add additional custom code here
+.heading {
+    font-family: 'Mulish', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #0a2ff1;
+}
+
+.subheading {
+    font-family: 'Mulish', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.text-card {
+    margin-bottom: 1rem;
+    padding: 0;
+    font-size: 0.7rem;
+}
