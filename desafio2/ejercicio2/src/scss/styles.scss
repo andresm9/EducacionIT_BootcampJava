@@ -63,25 +63,35 @@ $success: #7952b3;
 // Utilities
 @import "bootstrap/scss/utilities/api";
 
+@media (width >= 576px) {
+    .full-img {
+        width: 100%;
+    }
+}
+@media (width >= 768px) {
+    .full-img {
+        width: 80%;
+    }
+}
+
+body{
+    font-family: 'Mulish', sans-serif;
+}
+
 // 8. Add additional custom code here
 .heading {
     font-family: 'Mulish', sans-serif;
-    font-size: 2.5rem;
+    font-size: 37pt;
     font-weight: bold;
-    color: #0a2ff1;
+    color: #04146c;
 }
-
-.subheading {
+.p-text {
     font-family: 'Mulish', sans-serif;
-    font-size: 1rem;
-    font-weight: bold;
-    color: white;
-    margin: 0;
-    padding: 0;
+    font-size: 16pt;
+    font-weight: normal;
+    color: #04146c;
 }
+.p-bold {
 
-.text-card {
-    margin-bottom: 1rem;
-    padding: 0;
-    font-size: 0.7rem;
+    color: #0a2ff1;
 }

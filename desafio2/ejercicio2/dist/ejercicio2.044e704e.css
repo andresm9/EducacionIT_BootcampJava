@@ -6584,26 +6584,38 @@ progress {
   }
 }
 
+@media (width >= 576px) {
+  .full-img {
+    width: 100%;
+  }
+}
+
+@media (width >= 768px) {
+  .full-img {
+    width: 80%;
+  }
+}
+
+body {
+  font-family: Mulish, sans-serif;
+}
+
 .heading {
+  color: #04146c;
+  font-family: Mulish, sans-serif;
+  font-size: 37pt;
+  font-weight: bold;
+}
+
+.p-text {
+  color: #04146c;
+  font-family: Mulish, sans-serif;
+  font-size: 16pt;
+  font-weight: normal;
+}
+
+.p-bold {
   color: #0a2ff1;
-  font-family: Mulish, sans-serif;
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-
-.subheading {
-  color: #fff;
-  margin: 0;
-  padding: 0;
-  font-family: Mulish, sans-serif;
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-.text-card {
-  margin-bottom: 1rem;
-  padding: 0;
-  font-size: .7rem;
 }
 
 /*# sourceMappingURL=ejercicio2.044e704e.css.map */
