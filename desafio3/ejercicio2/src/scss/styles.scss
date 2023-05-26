@@ -1,5 +1,5 @@
 // Import all of Bootstrap's CSS
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;900&display=swap');
 
 //@import "bootstrap/scss/bootstrap";
 
@@ -33,7 +33,7 @@ $success: #7952b3;
 @import "bootstrap/scss/grid";
 // @import "bootstrap/scss/tables";
 // @import "bootstrap/scss/forms";
-// @import "bootstrap/scss/buttons";
+@import "bootstrap/scss/buttons";
 // @import "bootstrap/scss/transitions";
 // @import "bootstrap/scss/dropdown";
 // @import "bootstrap/scss/button-group";
@@ -58,15 +58,17 @@ $success: #7952b3;
 // @import "bootstrap/scss/placeholders";
 
 // Helpers
-// @import "bootstrap/scss/helpers";
+@import "bootstrap/scss/helpers";
 
 // Utilities
 @import "bootstrap/scss/utilities/api";
 
 @media (width >= 576px) {
     .full-img {
+        
         width: 100%;
     }
+    
 }
 @media (width >= 768px) {
     .full-img {
@@ -75,23 +77,23 @@ $success: #7952b3;
 }
 
 body{
-    font-family: 'Mulish', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 // 8. Add additional custom code here
 .heading {
-    font-family: 'Mulish', sans-serif;
-    font-size: 37pt;
-    font-weight: bold;
+    font-size: 62pt;
+    font-weight: 900;
     color: #04146c;
 }
 .p-text {
-    font-family: 'Mulish', sans-serif;
     font-size: 16pt;
     font-weight: normal;
     color: #04146c;
 }
-.p-bold {
-
-    color: #0a2ff1;
+.button_purple {
+    font-variant: small-caps;
+    font-size: 14pt;
+    background-color: #04146c;
+    color: white;
 }
