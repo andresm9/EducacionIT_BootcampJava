@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="scss/styles.scss">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Ejercicio2 - M1</title>
+</head>
+<body>
+    <div class="container">
+        <div class=" my-5 d-flex flex-column align-items-center justify-content-center" style="height: 350px;">
+            <h2 class="d-inline">Ejercicio 2</h2>
+            <div class="card">
+                <div class="card-body">
+                    <p>En este programa se ven distintos modelos de presupuesto. Un modelo común es el modelo 50-30-20, que consiste en repartir los ingresos de esta forma: 50% para los gastos necesarios, 30% para gastos opcionales y un 20% para ahorro e inversión</p>
+                    <div class="col-auto">
+                        <label for="costosfijos" class="col-form-label">Costos Fijos</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="number" min="0" id="costosfijos" name="costosfijos" class="form-control">
+                    </div>
+                </div>
+            </div>
+          </div>
+    </div>
+    <script type="module" src="js/main.js"></script>
+    <script type="text/javascript">
+        var ready = (callback) => {
+    if (document.readyState != "loading") callback();
+    else document.addEventListener("DOMContentLoaded", callback);
+  }
+  
+  ready(() => { 
+
+  });
+
+calcular = function(){
+
+    let costosfijos = document.querySelector("input[name=costosfijos]");
+    let preciodeventa = document.querySelector("input[name=preciodeventa]");
+    let costosvariables = document.querySelector("input[name=costosvariables]");   
+    let resultado = document.querySelector("#resultado");
+    if(
+        parseFloat(preciodeventa.value) == 0 || 
+        isNaN(parseFloat(preciodeventa.value)) ||
+        parseFloat(costosvariables.value) == 0 || 
+        isNaN(parseFloat(costosvariables.value))
+    ){
+        alert("El precio de venta o el costo variable no pueden ser igual a cero");
+        return false;
+    }
+
+    let cv = parseFloat(costosfijos.value) / (parseFloat(preciodeventa.value) - parseFloat(costosvariables.value));
+    if(isNaN(cv)){
+        resultado.innerHTML = "Punto de equilibrio es: 0"
+    } else {
+        resultado.innerHTML = `Punto de equilibrio es: ${cv}`
+    }
+}
+    </script>
+</body>
+</html>
