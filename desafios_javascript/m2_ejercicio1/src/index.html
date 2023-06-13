@@ -14,7 +14,10 @@
     <div class="container">
         <div style="height: 50rem"; class="d-flex flex-row flex-wrap justify-content-center align-content-center">
             <div class="container">
-                <form class="row">
+                <div class="row">
+                    <p>te proponemos pedir la edad del usuario y validar si es mayor a 18 años. En caso correcto, deberás mostrar un mensaje de bienvenida</p>
+                </div>
+                <form class="row" onsubmit="return false;">
                     <label class="offset-5 col-1 col-form-label" for="edad">Edad</label>
                     <div class="col-2">
                         <input class="form-control" type="number" maxlength="100" name="edad" id="edad">
@@ -51,9 +54,8 @@
             let edad = parseInt(document.querySelector("input[name=edad]").value);
             let mensaje = document.querySelector("#mensaje");
             
-            
             if(edad >= 18) {
-                mensaje.innerHTML = "Eres mayor de edad.";
+                mensaje.innerHTML = "Eres mayor de edad. Bienvenido";
                 mensaje.classList.remove("invisible", "alert-danger");
                 mensaje.classList.add("alert-success");
             } else {
