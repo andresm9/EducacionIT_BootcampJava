@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="scss/styles.scss">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Ejercicio1 - M2</title>
+</head>
+<body>
+    <div class="container">
+        <div style="height: 50rem"; class="d-flex flex-row flex-wrap justify-content-center align-content-center">
+            <div class="container">
+                <form class="row">
+                    <label class="offset-5 col-1 col-form-label" for="edad">Edad</label>
+                    <div class="col-2">
+                        <input class="form-control" type="number" maxlength="100" name="edad" id="edad">
+                    </div>
+                </form>
+                <div class="row my-3">
+                    <div class="col-3 offset-6">
+                        <button type="button" onclick="calcular()" class="btn btn-primary">Comprobar</button>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="alert alert-danger invisible" id="mensaje" role="alert">
+                        A simple danger alert—check it out!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="js/main.js"></script>
+    <script type="text/javascript">
+
+
+        var ready = (callback) => {
+            if (document.readyState != "loading") callback();
+            else document.addEventListener("DOMContentLoaded", callback);
+        }
+  
+        ready(() => { 
+
+        });
+
+        calcular = () => {
+
+            let edad = parseInt(document.querySelector("input[name=edad]").value);
+            let mensaje = document.querySelector("#mensaje");
+            
+            
+            if(edad >= 18) {
+                mensaje.innerHTML = "Eres mayor de edad.";
+                mensaje.classList.remove("invisible", "alert-danger");
+                mensaje.classList.add("alert-success");
+            } else {
+                mensaje.innerHTML = "Lo siento, no tienes la edad permitida para esto";
+                mensaje.classList.remove("invisible");
+                mensaje.classList.add("alert-danger");
+            }
+        }
+
+    </script>
+</body>
+</html>

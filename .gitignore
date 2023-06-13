@@ -3,3 +3,4 @@ desafio*/ejercicio*/.parcel-cache
 .DS_Store
 node_modules
 .parcel-cache
+dist
