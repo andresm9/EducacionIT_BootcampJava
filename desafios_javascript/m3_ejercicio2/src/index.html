@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="scss/styles.scss">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Ejercicio1 - M3</title>
+</head>
+<body class="overflow-y-auto">
+    <div class="container">
+        <div class="d-flex flex-row flex-wrap justify-content-center align-content-center">
+            <div class="container">
+                <div class="row my-4">
+                   <img src="img/ejercicio.png" alt="image">
+                   <hr/>
+                </div>
+                <div class="row my-4">
+                    <table class="table table-hover table-light" id="tabla">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Capital</th>
+                                <th>Plazo (Dias)</th>
+                                <th>Taza (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Plan 001</td>
+                                <td>150000</td>
+                                <td>30</td>
+                                <td>15</td>
+                            </tr>
+                            <tr>
+                                <td>Plan 002</td>
+                                <td>300000</td>
+                                <td>180</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>Plan 003</td>
+                                <td>485000</td>
+                                <td>60</td>
+                                <td>23</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row my-4">
+                    <button class="btn btn-primary" onclick="calcular()">Calcular</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="js/main.js"></script>
+    <script type="text/javascript">
+
+
+        var ready = (callback) => {
+            if (document.readyState != "loading") callback();
+            else document.addEventListener("DOMContentLoaded", callback);
+        }
+  
+        ready(() => { 
+
+        });
+
+        calcular = () => {
+
+           [...document.querySelectorAll('#tabla tr')].forEach( (row, i) => {
+
+            if( i != 0) {
+
+              
+                const celda = document.createElement("td");
+
+                let capital = parseFloat(row.querySelectorAll("td")[1].innerHTML);
+                let plazo = parseFloat(row.querySelectorAll("td")[2].innerHTML);
+                let tasa = parseFloat(row.querySelectorAll("td")[3].innerHTML);
+
+                let interes = (capital * plazo * tasa)/100;
+
+                celda.innerHTML = interes;
+                row.appendChild(celda);
+
+            } else {
+
+                const celda = document.createElement("th");
+                celda.innerHTML = 'Interes';
+                row.appendChild(celda);
+            }
+
+           } );
+
+        }
+
+    </script>
+</body>
+</html>

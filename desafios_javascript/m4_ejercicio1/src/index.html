@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="scss/styles.scss">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Ejercicio1 - M4</title>
+</head>
+<body class="overflow-y-auto">
+    <div class="container">
+        <div class="d-flex flex-row flex-wrap justify-content-center align-content-center">
+            <div class="container">
+                <div class="row my-4">
+                   <img src="img/e1.png" alt="image">
+                   <hr/>
+                </div>
+                <div class="row my-4">
+                    <table class="table table-hover table-light" id="tabla">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Periodo</th>
+                                <th>Ingreso</th>
+                                <th>Egreso</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Enero</td>
+                                <td><input name="ingreso" type="number" min="0" class="form-control" placeholder="Ingreso"></td>
+                                <td><input type="number" min="0" class="form-control" placeholder="Egreso" name="egreso"></td>
+                            </tr>
+                            <tr>
+                                <td>Febrero</td>
+                                <td><input name="ingreso" type="number" min="0" class="form-control" placeholder="Ingreso"></td>
+                                <td><input type="number" min="0" class="form-control" placeholder="Egreso" name="egreso"></td>
+                            </tr>
+                            <tr>
+                                <td>Marzo</td>
+                                <td><input name="ingreso" type="number" min="0" class="form-control" placeholder="Ingreso"></td>
+                                <td><input type="number" min="0" class="form-control" placeholder="Egreso" name="egreso"></td>
+                            </tr>
+                            <tr>
+                                <td>Abril</td>
+                                <td><input name="ingreso" type="number" min="0" class="form-control" placeholder="Ingreso"></td>
+                                <td><input type="number" min="0" class="form-control" placeholder="Egreso" name="egreso"></td>
+                            </tr>
+                            <tr>
+                                <td>Mayo</td>
+                                <td><input name="ingreso" type="number" min="0" class="form-control" placeholder="Ingreso"></td>
+                                <td><input type="number" min="0" class="form-control" placeholder="Egreso" name="egreso"></td>
+                            </tr>
+                            <tr>
+                                <td>Junio</td>
+                                <td><input name="ingreso" type="number" min="0" class="form-control" placeholder="Ingreso"></td>
+                                <td><input type="number" min="0" class="form-control" placeholder="Egreso" name="egreso"></td>
+                            </tr>
+                            <tr>
+                                <td>Julio</td>
+                                <td><input name="ingreso" type="number" min="0" class="form-control" placeholder="Ingreso"></td>
+                                <td><input type="number" min="0" class="form-control" placeholder="Egreso" name="egreso"></td>
+                            </tr>
+                            <tr>
+                                <td>Agosto</td>
+                                <td><input name="ingreso" type="number" min="0" class="form-control" placeholder="Ingreso"></td>
+                                <td><input type="number" min="0" class="form-control" placeholder="Egreso" name="egreso"></td>
+                            </tr>
+                            <tr>
+                                <td>Septiembre</td>
+                                <td><input name="ingreso" type="number" min="0" class="form-control" placeholder="Ingreso"></td>
+                                <td><input type="number" min="0" class="form-control" placeholder="Egreso" name="egreso"></td>
+                            </tr>
+                            <tr>
+                                <td>Octubre</td>
+                                <td><input name="ingreso" type="number" min="0" class="form-control" placeholder="Ingreso"></td>
+                                <td><input type="number" min="0" class="form-control" placeholder="Egreso" name="egreso"></td>
+                            </tr>
+                            <tr>
+                                <td>Noviembre</td>
+                                <td><input name="ingreso" type="number" min="0" class="form-control" placeholder="Ingreso"></td>
+                                <td><input type="number" min="0" class="form-control" placeholder="Egreso" name="egreso"></td>
+                            </tr>
+                            <tr>
+                                <td>Diciembre</td>
+                                <td><input name="ingreso" type="number" min="0" class="form-control" placeholder="Ingreso"></td>
+                                <td><input type="number" min="0" class="form-control" placeholder="Egreso" name="egreso"></td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row my-4">
+                    <button class="btn btn-primary" onclick="calcular()">Calcular</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="js/main.js"></script>
+    <script type="text/javascript">
+
+
+        var ready = (callback) => {
+            if (document.readyState != "loading") callback();
+            else document.addEventListener("DOMContentLoaded", callback);
+        }
+  
+        ready(() => { 
+
+        });
+
+        calcular = () => {
+
+           [...document.querySelectorAll('#tabla tr')].forEach( (row, i) => {
+
+            if( i != 0) {
+
+                const texto = document.createElement("span");
+                let ingreso = parseFloat(row.querySelector("input[name=ingreso]").value);
+                let egreso = parseFloat(row.querySelector("input[name=egreso]").value);
+                
+
+                let resultado = flujoCaja(ingreso, egreso)
+
+                if(resultado == -1) {
+                    texto.classList.add('badge', 'text-bg-danger')
+                    texto.innerHTML = 'Perdida';
+                } else if (resultado == 0) {
+                    texto.classList.add('badge', 'text-bg-secondary')
+                    texto.innerHTML = 'Sin variaciones';
+                } else if( resultado == 1) {
+                    texto.classList.add('badge', 'text-bg-success')
+                    texto.innerHTML = 'Ganancia';
+                } else {
+                    texto.classList.add('badge', 'text-bg-secondary')
+                    texto.innerHTML = 'Sin Datos';
+                }
+
+                const celda = document.createElement("td");
+                celda.appendChild(texto);
+                row.appendChild(celda);
+
+            } else {
+
+                const celda = document.createElement("th");
+                celda.innerHTML = 'Resultado';
+                row.appendChild(celda);
+            }
+
+           } );
+
+        }
+
+        flujoCaja = function(ingreso, egreso) {
+            if( ingreso < egreso) return -1;
+            if( ingreso > egreso) return 1;
+            if( ingreso == egreso) return 0;
+        }
+
+    </script>
+</body>
+</html>
